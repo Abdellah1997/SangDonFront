@@ -54,6 +54,14 @@ const routes: Routes = [
     path: 'supprimer',
     loadChildren: () => import('./components/supprimer/supprimer.module').then( m => m.SupprimerPageModule)
   },
+  {
+    path: 'centres',
+    loadChildren: () => import('./components/centres/centres.module').then( m => m.CentresPageModule)
+  },
+  {
+    path: 'details-centre',
+    loadChildren: () => import('./components/details-centre/details-centre.module').then( m => m.DetailsCentrePageModule)
+  },
 
 
 ];
