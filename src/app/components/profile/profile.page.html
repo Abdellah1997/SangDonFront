@@ -1,0 +1,122 @@
+<ion-content class="center">
+  <img src="assets/images/head.png" alt="header Sang Don" id="img-head" />
+
+  <img id="larg" src="assets/images/logo.jpeg" alt="Logo Sang Don" style="margin-top: 25%" />
+
+  <form>
+    <div style="margin-bottom: 5%">
+      <h1 style="color: #ff4546">Profile</h1>
+    </div>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="person-sharp"></ion-icon>
+        <ion-card-title style="font-size: 18px">Nom </ion-card-title>
+      </ion-item>
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        GHARBI Hafsa
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="accessibility-sharp"></ion-icon>
+        <ion-card-title style="font-size: 18px">Age </ion-card-title>
+      </ion-item>
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        23 ans
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="map-sharp"></ion-icon>
+        <ion-card-title style="font-size: 18px">Adresse </ion-card-title>
+      </ion-item>
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        Tanger
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="mail-sharp"></ion-icon>
+        <ion-card-title style="font-size: 18px">Email </ion-card-title>
+      </ion-item>
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        Gh@gmail.com
+      </ion-card-content>
+    </ion-card>
+    <!-- <h2>{{ user.name }}</h2>
+    <h2>{{ user.age }}</h2>
+    <h2>{{ user.address }}</h2>
+    <h2>{{ user.email }}</h2> -->
+
+    <!-- Nom -->
+    <!-- <ion-item lines="full" style="margin-left: 5%; margin-right: 5%; margin-top: 10%; border:1px solid #e62727; border-radius: 25px;">
+      <ion-input name="name" [(ngModel)] = "user.name" disabled="true"></ion-input>
+    </ion-item> -->
+
+    <!-- Age -->
+    <!-- <ion-item lines="full" style="margin-left: 5%; margin-right: 5%; margin-top: 10%; border:1px solid #e62727; border-radius: 25px;">
+      <ion-input name="age" [(ngModel)] = "user.age" disabled="true"></ion-input>
+    </ion-item> -->
+
+    <!-- Adresse -->
+    <!-- <ion-item lines="full" style="margin-left: 5%; margin-right: 5%; margin-top: 10%; border:1px solid #e62727; border-radius: 25px;">
+      <ion-input name="address" [(ngModel)] = "user.address" disabled="true"></ion-input>
+    </ion-item> -->
+
+    <!-- Mot de passe -->
+    <!-- <ion-item lines="full" style="margin-left: 5%; margin-right: 5%; margin-top: 10%; border:1px solid #e62727; border-radius: 25px;">
+      <ion-input name="email" [(ngModel)] = "user.email" disabled="true"></ion-input>
+    </ion-item> -->
+
+    <!-- <div style="margin-bottom: 5%;"><label [(ngModel)] = "user.name"></label></div>
+    <div style="margin-bottom: 5%;"><label [(ngModel)] = "user.age"></label></div>
+    <div style="margin-bottom: 5%;"><label [(ngModel)] = "user.address"></label></div>
+    <div style="margin-bottom: 5%;"><label [(ngModel)] = "user.email"></label></div> -->
+
+    <ion-card>
+      <ion-item>
+        <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="stats-chart-outline"></ion-icon>
+        <ion-card-title style="font-size: 18px">Statistiques </ion-card-title>
+      </ion-item>
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        Total des demandes: {{stats.t_demande}}
+      </ion-card-content>
+
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        Total des dons: {{stats.t_don}}
+      </ion-card-content>
+
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        Nombre de don / an : {{stats.don_an}}
+      </ion-card-content>
+
+      <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
+        Prochain don : {{stats.next_don}}
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" style="margin-top: 2%; font-weight: Bold" expand="float"
+          [routerLink]="['/modifier']">
+          Modifier
+        </ion-button>
+
+
+        <ion-button type="submit" color="light" style="margin-top: 2%; font-weight: Bold" expand="float"
+          [routerLink]="['/supprimer']">
+          Supprimer
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+  </form>
+  <div id="img-foot">
+    <img src="assets/images/foot.png" alt="footer Sang Don" />
+  </div>
+</ion-content>

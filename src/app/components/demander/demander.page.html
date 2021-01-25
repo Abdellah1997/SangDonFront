@@ -1,0 +1,32 @@
+<ion-content class="center">
+  <img src='assets/images/head.png' alt="header Sang Don" id="img-head" />
+  <img src='assets/images/logo.jpeg' alt="Logo Sang Don" style="margin-top: 30%;"  id="logo"/>
+  <div>
+    <h1 style="color: #ff4546; margin-top:10%">Demander de sang</h1>
+  </div>
+  <form #demanderForm="ngForm" (ngSubmit)="addDemande()" method="POST">
+
+    <ion-item style="margin-left: 5%; margin-right: 5%; margin-top: 10%; border:2px solid #ff4546; border-radius: 25px;">
+      <ion-label>Choisir le groupe sanguin</ion-label>
+      <ion-select [(ngModel)]="demande.typeSang" name="type">
+        <ion-select-option value="AB+">AB+</ion-select-option>
+        <ion-select-option value="AB-">AB-</ion-select-option>
+        <ion-select-option value="A+">A+</ion-select-option>
+        <ion-select-option value="A-">A-</ion-select-option>
+        <ion-select-option value="B+">B+</ion-select-option>
+        <ion-select-option value="B-">B-</ion-select-option>
+        <ion-select-option value="O+">O+</ion-select-option>
+        <ion-select-option value="O-">O-</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" style="margin-top: 10%; font-weight: bold;" expand="float" [disabled]="!demanderForm.valid">
+          Demander
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+<div><img src='assets/images/foot.png' alt="header Sang Don" id="img-foot" /></div>

@@ -1,16 +1,61 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPageModule } from './components/login/login.module';
+import { LoginPage } from './components/login/login.page';
+import { SignupPage } from './components/signup/signup.page';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: '',
     pathMatch: 'full'
   },
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./components/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./components/signup/signup.module').then( m => m.SignupPageModule)
+  },
+
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./components/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./components/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
+  {
+    path: 'demander',
+    loadChildren: () => import('./components/demander/demander.module').then( m => m.DemanderPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./components/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'modifier',
+    loadChildren: () => import('./components/modifier/modifier.module').then( m => m.ModifierPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./components/help/help.module').then( m => m.HelpPageModule)
+  },
+  {
+    path: 'infos',
+    loadChildren: () => import('./components/infos/infos.module').then( m => m.InfosPageModule)
+  },  {
+    path: 'supprimer',
+    loadChildren: () => import('./components/supprimer/supprimer.module').then( m => m.SupprimerPageModule)
+  },
+
+
 ];
 
 @NgModule({

@@ -1,0 +1,76 @@
+<ion-content class="center">
+  
+  <img src='assets/images/head.png' alt="header Sang Don" id="img-head" />
+  <img src='assets/images/logo.jpeg' alt="Logo Sang Don" style="margin-top: 30%;" id="logo" />
+  <div>
+    <h1 style="color: #ff4546;">Modifier profile</h1>
+  </div>
+
+  <form #editForm="ngForm" (ngSubmit)="edit(editForm)" method="POST">
+
+    <!-- Nom -->
+    <ion-item lines="full" id="input">
+      <ion-input type="text" [(ngModel)]="user.name" name="name" required placeholder="Nom"></ion-input>
+    </ion-item>
+
+    <!-- Age -->
+    <ion-item lines="full" id="input">
+      <ion-input type="number" [(ngModel)]="user.date_ns" name="date_ns" required ></ion-input>
+    </ion-item>
+
+    <!-- Ville -->
+    <ion-item style="
+              margin-left: 5%;
+              margin-right: 5%;
+              margin-top: 5%;
+              border: 1px solid #e62727;
+              border-radius: 25px;
+            ">
+      <ion-label>Ville</ion-label>
+      <ion-select [(ngModel)]="user.ville" name="ville">
+        <ion-select-option *ngFor="let ville of villes" value="{{ville.id}}">{{ ville.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Genre -->
+    <ion-item id="input">
+      <ion-label>Sexe</ion-label>
+      <ion-select [(ngModel)]="user.genre" name="genre">
+        <ion-select-option value="femme">Femme</ion-select-option>
+        <ion-select-option value="homme">Homme</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- E-mail -->
+    <ion-item lines="full" id="input">
+      <ion-input type="email" [(ngModel)]="user.email" name="email" required placeholder="Email"></ion-input>
+    </ion-item>
+
+    <!-- Mot de passe -->
+    <ion-item lines="full" id="input">
+      <ion-input type="password" ngModel name="password" required placeholder="Mot de passe">
+      </ion-input>
+    </ion-item>
+
+    <!-- Confirmation du mot de passe -->
+    <ion-item lines="full" id="input">
+      <ion-input type="password" ngModel name="confirmPwd" required placeholder="Vonfirmer le password"></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <!-- Bouton d'annulation -->
+      <ion-col>
+        <ion-button type="submit" color="light" style="margin-top: 5%;" expand="float" [routerLink]="['/home']"
+          routerLinkActive="router-link-active" id="button1">Annuler
+        </ion-button>
+      </ion-col>
+      <!-- Bouton d'enregistrement -->
+      <ion-col>
+        <ion-button type="submit" color="danger" style="margin-top: 5%;" expand="float" [disabled]="!editForm.valid">
+          Enregistrer
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <img src='assets/images/foot.png' alt="header Sang Don" id="img-foot" />
+</ion-content>

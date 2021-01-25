@@ -1,0 +1,30 @@
+<ion-content class="center">
+  <img src='assets/images/head.png' alt="header Sang Don" id="img-head" />
+  <img src='assets/images/logo.jpeg' alt="Logo Sang Don" style="margin-top: 30%;" id="logo" />
+
+  <form #DeleteForm="ngForm" (ngSubmit)="supprimer(DeleteForm)" method="POST">
+    <div>
+      <h1 style="color: #ff4546;">Suppression</h1>
+    </div>
+
+    <ion-item lines="full" id="input">
+      <ion-input type="password" required ngModel name="password" placeholder="Saisir votre password"></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="light" style="margin-top: 10%; font-weight: bold;" expand="float"
+          [routerLink]="['/profile']" routerLinkActive="router-link-active">Annuler</ion-button>
+
+          <ion-button color="danger" style="border: 1px solid #ff4546; margin-top: 10%; font-weight: bold;" expand="float"
+            [routerLink]="['/signup']" routerLinkActive="router-link-active" [disabled]="!DeleteForm.valid">Confirmer</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <small>
+      WARNING : Une fois vous supprimer votre compte tous vos données seront supprimer, et vous n'aurez pas l'acces a votre compte.
+    </small>
+    
+  </form>
+  <img src='assets/images/foot.png' alt="header Sang Don" id="img-foot" />
+</ion-content>
