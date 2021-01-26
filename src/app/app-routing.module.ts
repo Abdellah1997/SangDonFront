@@ -50,7 +50,8 @@ const routes: Routes = [
   {
     path: 'infos',
     loadChildren: () => import('./components/infos/infos.module').then( m => m.InfosPageModule)
-  },  {
+  },
+  {
     path: 'supprimer',
     loadChildren: () => import('./components/supprimer/supprimer.module').then( m => m.SupprimerPageModule)
   },

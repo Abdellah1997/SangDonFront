@@ -13,6 +13,6 @@ export class CentresPage implements OnInit {
   ngOnInit() {
   }
   goToDetails(){
-    this.router.navigate(['']);
+    this.router.navigate(['details-centre']);
   }
 }
