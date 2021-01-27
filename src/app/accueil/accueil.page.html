@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Accueil</ion-title>
+      </ion-toolbar>
+    </ion-header>
+<ion-content >
+    <ion-card color=medium>
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content>
+        <div >
+          <p>
+            Exprimer votre besoin du sang
+          </p>
+          <div style="float:right;">
+            <ion-button slot="end" color="danger" onclick="postuler()">Postuler</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <div style="margin-top:25px;">
+      <ion-list padding *ngFor="let item of demandes">
+        <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title style="font-size:large;">Besoin du sang de type {{item.type}}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <p>
+            {{item.description}}
+          </p>
+          <div style="float:right;">
+            <ion-button slot="end" color="warning">Appliquer</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    </div>
+</ion-content>
