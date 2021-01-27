@@ -7,7 +7,7 @@
       </ion-toolbar>
     </ion-header>
 <ion-content >
-    <ion-card color=medium>
+    <ion-card color="light">
       <ion-card-header>
       </ion-card-header>
       <ion-card-content>
@@ -16,24 +16,24 @@
             Exprimer votre besoin du sang
           </p>
           <div style="float:right;">
-            <ion-button slot="end" color="danger" onclick="postuler()">Postuler</ion-button>
+            <ion-button slot="end" color="danger" (click)="postuler()">Postuler</ion-button>
           </div>
         </div>
       </ion-card-content>
     </ion-card>
     <div style="margin-top:25px;">
+      <ion-item><h2 style="margin-left: 25px;color: #eb445a;">Explorer les demandes</h2></ion-item>
       <ion-list padding *ngFor="let item of demandes">
         <ion-card color="light">
         <ion-card-header>
           <ion-card-title style="font-size:large;">Besoin du sang de type {{item.type}}</ion-card-title>
         </ion-card-header>
-      
         <ion-card-content>
           <p>
             {{item.description}}
           </p>
           <div style="float:right;">
-            <ion-button slot="end" color="warning">Appliquer</ion-button>
+            <ion-button slot="end" color="warning" (click)="appliquer(item.id)">Appliquer</ion-button>
           </div>
         </ion-card-content>
       </ion-card>

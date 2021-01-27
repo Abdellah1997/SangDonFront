@@ -11,18 +11,20 @@ export class AccueilPage implements OnInit {
 
   ngOnInit() {
     this.demandes = [
-      { type: 'ab', description: 'hopital raid' },
-      { type: 'a', description: 'centre de donnation chifae' },
-      { type: 'o', description: 'clinique salam' },
-      { type: 'ab', description: 'hopital raid' },
-      { type: 'a', description: 'centre de donnation chifae' },
-      { type: 'o', description: 'clinique salam' }
-      
+      { id:1,type: 'ab', description: 'hopital raid' },
+      {id:2, type: 'a', description: 'centre de donnation chifae' },
+      { id:3,type: 'o', description: 'clinique salam' },
+      { id:4,type: 'ab', description: 'hopital raid' },
+      { id:5,type: 'a', description: 'centre de donnation chifae' },
+      { id:6,type: 'o', description: 'clinique salam' }
   ];
   }
   public postuler()
   {
-
+console.log("hellloo");
   }
-
+  public appliquer(id)
+  {
+console.log(id);
+  }
 }
