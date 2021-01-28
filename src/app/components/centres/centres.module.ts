@@ -13,7 +13,7 @@ import { CentresPage } from './centres.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CentresPageRoutingModule
+    CentresPageRoutingModule,
   ],
   declarations: [CentresPage]
 })

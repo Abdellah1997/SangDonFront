@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { CentresService } from './services/centres/centres.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,10 +21,12 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     AppRoutingModule,
     HttpClientModule,
   ],
+  exports:[HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
     NativeStorage,
+    CentresService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]
