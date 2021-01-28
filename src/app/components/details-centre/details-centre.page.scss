@@ -7,8 +7,17 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
 }
 
-#img-foot{
-    display: flex;
+ion-icon{
+  z-index: 999;
+  color: white;
+  font-size: 38px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+ion-content{
+  height: 100%;
 }

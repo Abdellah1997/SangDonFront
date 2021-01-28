@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-details-centre',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsCentrePage implements OnInit {
 
-  constructor() { }
+  constructor(private router:NavController) { }
 
   ngOnInit() {
+  }
+
+  Back(){
+    this.router.pop();
   }
 
 }
