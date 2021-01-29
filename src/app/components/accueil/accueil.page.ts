@@ -12,12 +12,12 @@ export class AccueilPage implements OnInit {
   constructor(private router: Router,private accueils:AcceuilService ) { }
   ngOnInit() {
     this.demandes = [
-      { id:1,typeSang: 'ab' },
-      {id:2, typeSang: 'a' },
-      { id:3,typeSang: 'o'},
-      { id:4,typeSang: 'ab'},
-      { id:5,typeSang: 'a'},
-      { id:6,typeSang: 'o' }
+      { id:1,typeSang: 'ab-' },
+      {id:2, typeSang: 'a-' },
+      { id:3,typeSang: 'o+'},
+      { id:4,typeSang: 'ab+'},
+      { id:5,typeSang: 'a+'},
+      { id:6,typeSang: 'o-' }
   ];
   this.accueils.getdemandes().subscribe(data=> this.demandes=data)
   }

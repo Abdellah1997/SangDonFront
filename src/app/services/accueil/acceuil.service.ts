@@ -7,7 +7,6 @@ import { Demande } from 'src/app/models/Demande';
   providedIn: 'root'
 })
 export class AcceuilService {
-   id_d=-1;
   constructor(private http:HttpClient) { }
   API_URL = 'http://localhost:8000/api/';
   getdemandes() {
