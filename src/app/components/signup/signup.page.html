@@ -1,0 +1,63 @@
+<ion-content class="center">
+  <img src='assets/images/head.png' alt="header Sang Don" id="img-head" />
+  <img src='assets/images/logo.jpeg' alt="Logo Sang Don" style="margin-top: 30%;" id="logo" />
+
+  <div>
+    <h1 style="color: #ff4546;">Inscription</h1>
+  </div>
+  <form #signupForm="ngForm" (ngSubmit)="register(signupForm)">
+  
+    <ion-item lines="full" id="input">
+      <ion-input type="text" required placeholder="Entrer votre nom et prénom" ngModel name="name">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item lines="full" id="input">
+      <ion-input type="date" required  ngModel name="age"></ion-input>
+    </ion-item>
+  
+  <ion-item style="
+          margin-left: 5%;
+          margin-right: 5%;
+          margin-top: 5%;
+          border: 1px solid #e62727;
+          border-radius: 25px;
+        ">
+    <ion-label>Ville</ion-label>
+    <ion-select ngModel name="ville">
+      <ion-select-option *ngFor="let ville of villes" value="{{ville.id}}">{{ ville.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+    <ion-item id="input">
+      <ion-label>Genre</ion-label>
+      <ion-select ngModel name="genre">
+        <ion-select-option value="femme">Femme</ion-select-option>
+        <ion-select-option value="homme">Homme</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item lines="full" id="input">
+      <ion-input type="email" required placeholder="Entrer votre email" ngModel name="email"></ion-input>
+    </ion-item>
+    <ion-item lines="full" id="input">
+      <ion-input type="password" required placeholder="Mot de passe" ngModel name="password">
+      </ion-input>
+    </ion-item>
+  
+    <ion-item lines="full" id="input">
+      <ion-input type="password" required placeholder="confirmer le mot de passe" ngModel name="confirm"></ion-input>
+    </ion-item>
+  
+    <ion-row>
+      <ion-col>
+        <ion-button color="light" style="border: 1px solid #ff4546; margin-top: 5%;" expand="float"
+          [routerLink]="['/login']" routerLinkActive="router-link-active">Se connecter</ion-button>
+         <ion-button type="submit" color="danger" style="margin-top: 5%;" expand="float" [disabled]="!signupForm.valid">
+          S'inscrire
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+    <img src='assets/images/foot.png' alt="footer Sang Don" />
+</ion-content>

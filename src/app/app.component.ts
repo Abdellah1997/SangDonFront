@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Mes demandes',
-      url: '/folder/Outbox',
+      url: '/demandes',
       icon: 'document'
     },
     {
@@ -29,22 +29,22 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Rendez-vous',
-      url: '/folder/test',
+      url: '/Rendez-vous',
       icon: 'people'
     },
     {
       title: 'Mon Profile',
-      url: '/folder/Archived',
+      url: '/profile',
       icon: 'happy'
     },
     {
       title: 'Help',
-      url: '/folder/Trash',
+      url: '/help',
       icon: 'help'
     },
     {
       title: 'Informations',
-      url: '/folder/Spam',
+      url: '/infos',
       icon: 'information'
     }
   ];

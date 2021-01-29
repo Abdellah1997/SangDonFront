@@ -6,7 +6,10 @@
         <ion-title>Accueil</ion-title>
       </ion-toolbar>
     </ion-header>
-<ion-content >
+<ion-content>
+  <div class="center">
+    <img src='assets/images/logo.jpeg' alt="Logo Sang Don" style="margin-top: 3%;height: 150px;"  id="logo"/>
+  </div>
     <ion-card color="light">
       <ion-card-header>
       </ion-card-header>
@@ -26,12 +29,9 @@
       <ion-list padding *ngFor="let item of demandes">
         <ion-card color="light">
         <ion-card-header>
-          <ion-card-title style="font-size:large;">Besoin du sang de type {{item.type}}</ion-card-title>
+          <ion-card-title style="font-size:large;">Besoin du sang de type {{item.typeSang}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>
-            {{item.description}}
-          </p>
           <div style="float:right;">
             <ion-button slot="end" color="warning" (click)="appliquer(item.id)">Appliquer</ion-button>
           </div>

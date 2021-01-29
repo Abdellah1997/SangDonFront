@@ -1,0 +1,12 @@
+{
+  "villes" : [
+    {
+      "id" : 1,
+      "name" : "Tanger"
+    },
+    {
+      "id" : 2,
+      "name" : "Rabat"
+    }
+  ]
+}
