@@ -27,12 +27,10 @@ export class AccueilPage implements OnInit {
   }
   public appliquer(id)
   {
-this.accueils.appliquer(id);
 let resp=this.accueils.appliquer(id);
 resp.subscribe(
  (data) => {                           //Next callback
   console.log("Inserted");
-  this.router.navigate(['/rendez-vous']);
 },
 (error) => {                              //Error callback
   console.error('error');
