@@ -7,7 +7,7 @@ import { SignupPage } from './components/signup/signup.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'centres',
     pathMatch: 'full'
   },
   {
@@ -64,7 +64,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/centres/centres.module').then( m => m.CentresPageModule)
   },
   {
-    path: 'details-centre',
+    path: 'centres/:id',
     loadChildren: () => import('./components/details-centre/details-centre.module').then( m => m.DetailsCentrePageModule)
   }
 ];
