@@ -31,11 +31,11 @@ this.accueils.appliquer(id);
 let resp=this.accueils.appliquer(id);
 resp.subscribe(
  (data) => {                           //Next callback
-  console.log("all went good");
+  console.log("Inserted");
   this.router.navigate(['/rendez-vous']);
 },
 (error) => {                              //Error callback
-  console.error('error caught in component')
+  console.error('error');
 }
   );
   }
