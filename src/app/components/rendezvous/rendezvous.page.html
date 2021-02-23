@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <img src="../../../assets/images/head.png" alt="header Sang Don" id="img-head">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="center">
+    <img src="../../../assets/images/logo.jpeg" alt="Logo Sang Don" style="margin-top: 30%;"  id="logo">
+  </div>
+  <div>
+    <center>
+      
+
+      
+    <h1 style="color: #ff4546; margin-top:10%"><strong>Rendez Vous</strong></h1>
+  
+</center>
+  </div>
+  <form #rendezvousForm="ngForm" (ngSubmit)="addrendezvous()">
+  <ion-item lines="full" id="input">
+    <ion-input type="date" id="date" [(ngModel)]="rendezvous.date"></ion-input>
+  </ion-item>
+  <ion-item style="margin-left: 5%; margin-right: 5%; margin-top: 10%; border:2px solid #ff4546; border-radius: 25px;">
+    <ion-label>Choisir votre center</ion-label>
+    <ion-select required  ngModel name="center" >
+      <ion-select-option *ngFor="let centres of centres " id="nomCenter" [(ngModel)]="rendezvous.nomCenter" >{{centres.nom}}
+      </ion-select-option>
+    </ion-select>
+  
+  </ion-item>
+  <ion-button type="submit" color="danger" style="margin-top: 5%;" expand="float">
+    Valider !
+  </ion-button>
+</form>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <img src='assets/images/foot.png' alt="header Sang Don" id="img-foot" />
+</ion-footer>

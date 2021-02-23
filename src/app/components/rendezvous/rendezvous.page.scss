@@ -1,0 +1,41 @@
+#logo {
+    width: 30%;
+    margin-top: 50px;
+}
+
+#img-head {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#img-foot{
+    display: flex;
+}
+.button{
+    display: flex;
+flex-direction: row;
+align-content: center;
+padding: 16px 24px;
+
+position: absolute;
+left: 30.43%;
+right: 30.43%;
+top: 65.51%;
+bottom: 28.91%;
+
+background: linear-gradient(180deg, #FF4546 0%, #D45253 100%);
+border-radius: 4px;
+}
+
+#img-foot{
+    display: flex;
+}
+
+#input{
+    margin-left: 5%; 
+    margin-right: 5%; 
+    margin-top: 10%; 
+    border:2px solid #ff4546; 
+    border-radius: 25px;
+}

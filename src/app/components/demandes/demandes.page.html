@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <img src="../../../assets/images/head.png" alt="header Sang Don" id="img-head">
+  
+</ion-header>
+<!-- <ion-content>
+  <center>
+    <div class="titre">
+    <p >Mes Demandes</p>
+  </div>
+  </center>
+  <div ion-item *ngFor="let post of posts" class="rectangle">
+    <center>
+    <h2 text-align=center>{{post.title}}</h2>
+  </center>
+    <button class="button" >Done !</button>
+  </div>
+
+</ion-content> -->
+<ion-content [fullscreen]="true">
+  <div class="center">
+    <img src="../../../assets/images/logo.jpeg" alt="Logo Sang Don" style="margin-top: 30%;"  id="logo">
+  </div>
+  <center>
+    <div class="titre">
+    <p >Mes Demandes</p>
+  </div>
+  </center>
+  <ion-card *ngFor="let demandes of demandes">
+    <ion-card-content>
+      <ion-card-title>{{demandes.id}}</ion-card-title><br><br>
+      <ion-button color="danger" (ngSubmit)="Delete(demandes.id)" method="Delete">Delete !</ion-button><br>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <img src='assets/images/foot.png' alt="header Sang Don" id="img-foot" />
+</ion-footer>

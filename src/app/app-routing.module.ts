@@ -62,7 +62,15 @@ const routes: Routes = [
   {
     path: 'details-centre',
     loadChildren: () => import('./components/details-centre/details-centre.module').then( m => m.DetailsCentrePageModule)
+  },  {
+    path: 'demandes',
+    loadChildren: () => import('./components/demandes/demandes.module').then( m => m.DemandesPageModule)
   },
+  {
+    path: 'rendezvous',
+    loadChildren: () => import('./components/rendezvous/rendezvous.module').then( m => m.RendezvousPageModule)
+  },
+
 
 
 ];
