@@ -10,7 +10,7 @@ import { Rendezvous } from 'src/app/models/Rendezvous';
 export class RendezvousService {
 
   
-  API_URL = 'http://localhost:8000/api/';
+  API_URL = 'https://jsonplaceholder.typicode.com/todos/1';
 
   constructor(private _httpClient: HttpClient) { }
 

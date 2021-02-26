@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Demandes } from 'src/app/models/Demandes';
+import { Demande } from 'src/app/models/Demande';
 import { DemandesService } from 'src/app/services/demandes/demandes.service';
 @Component({
   selector: 'app-demandes',
@@ -9,10 +9,10 @@ import { DemandesService } from 'src/app/services/demandes/demandes.service';
   styleUrls: ['./demandes.page.scss'],
 })
 export class DemandesPage implements OnInit {
-  demandes : Demandes[];
+  demandes : Demande[];
   
   
-  Demandes : Demandes[] = [];
+  Demandes : Demande[] = [];
   constructor(
     private router: Router,
     private demandeService: DemandesService
