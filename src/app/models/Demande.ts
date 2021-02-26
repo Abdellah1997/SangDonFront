@@ -3,8 +3,5 @@ export interface Demande{
     id: number,
     type_sang_id: String,
     id_ville : number ,
-    id_centre: number,
-    type_sang: String,
-    adresse: String
-
+    id_centre: number
 }
