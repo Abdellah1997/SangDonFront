@@ -12,15 +12,11 @@
   </div>
     <ion-card color="light">
       <ion-card-header>
+        <ion-card-title style="font-size:large;">Exprimer votre besoin</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <div >
-          <p>
-            Exprimer votre besoin du sang
-          </p>
           <div style="float:right;">
             <ion-button slot="end" color="danger" (click)="postuler()">Postuler</ion-button>
-          </div>
         </div>
       </ion-card-content>
     </ion-card>
@@ -32,8 +28,9 @@
           <ion-card-title style="font-size:large;">Besoin du sang de type {{item.typeSang}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>{{item.adresse}}</p>
           <div style="float:right;">
-            <ion-button slot="end" color="warning" (click)="appliquer(item.id)">Appliquer</ion-button>
+            <ion-button slot="end" color="warning" (click)="appliquer(item.adresse)">Appliquer</ion-button>
           </div>
         </ion-card-content>
       </ion-card>
