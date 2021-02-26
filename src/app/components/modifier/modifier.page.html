@@ -23,7 +23,7 @@
 
     <!-- Age -->
     <ion-item lines="full" id="input">
-      <ion-input type="number" [(ngModel)]="user.date_ns" name="date_ns" required ></ion-input>
+      <ion-input type="number" [(ngModel)]="user.date_naissance" name="date_naissance" required ></ion-input>
     </ion-item>
 
     <!-- Ville -->
@@ -62,13 +62,13 @@
 
     <!-- Confirmation du mot de passe -->
     <ion-item lines="full" id="input">
-      <ion-input type="password" ngModel name="confirmPwd" required placeholder="Vonfirmer le password"></ion-input>
+      <ion-input type="password" ngModel name="confirmPwd" required placeholder="Confirmer le password"></ion-input>
     </ion-item>
 
     <ion-row>
       <!-- Bouton d'annulation -->
       <ion-col>
-        <ion-button type="submit" color="light" style="margin-top: 5%;" expand="float" [routerLink]="['/home']"
+        <ion-button color="light" style="margin-top: 5%;" expand="float" [routerLink]="['/home']"
           routerLinkActive="router-link-active" id="button1">Annuler
         </ion-button>
       </ion-col>

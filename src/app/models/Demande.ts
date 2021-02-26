@@ -1,4 +1,7 @@
+import { Ville } from './Ville';
 export interface Demande{
     id: number,
-    typeSang: String
+    type_sang_id: String,
+    id_ville : number ,
+    adresse: String 
 }

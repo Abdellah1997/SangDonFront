@@ -8,12 +8,16 @@ import { AcceuilService } from 'src/app/services/accueil/acceuil.service';
   styleUrls: ['./accueil.page.scss'],
 })
 export class AccueilPage implements OnInit {
+
   public demandes= [];
+  tk: any;
+
+
   constructor(private router: Router,private accueils:AcceuilService ) { }
   ngOnInit() {
     this.demandes = [
       { id:1,typeSang: 'ab-' },
-      {id:2, typeSang: 'a-' },
+      { id:2, typeSang: 'a-' },
       { id:3,typeSang: 'o+'},
       { id:4,typeSang: 'ab+'},
       { id:5,typeSang: 'a+'},
@@ -27,14 +31,14 @@ export class AccueilPage implements OnInit {
   }
   public appliquer(id)
   {
-let resp=this.accueils.appliquer(id);
-resp.subscribe(
- (data) => {                           //Next callback
-  console.log("Inserted");
-},
-(error) => {                              //Error callback
-  console.error('error');
-}
-  );
+  let resp=this.accueils.appliquer(id);
+  resp.subscribe(
+  (data) => {                           //Next callback
+    console.log("Inserted");
+  },
+  (error) => {                              //Error callback
+    console.error('error');
   }
+    );
+    }
 }

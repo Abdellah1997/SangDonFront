@@ -19,25 +19,27 @@ export class ProfilePage implements OnInit {
     private navCtrl: NavController,
     private menu: MenuController
   ) { 
-   this.isLoggedIn();
-   console.log("Hello "+ this.stats.don_an);
   }
 
   // --- Méthode pour s'assurer que l'utilisateur est connecté ---
-  isLoggedIn() {
-    if(!this.loginService.isLoggedIn)
-      this.navCtrl.navigateRoot('/login');
-    else
-    {  
-      this.user = LoginService.user;
-      this.menu.enable(true);
-      this.loginService.profile();
-      this.stats = this.loginService.stats;
+  // isLoggedIn() {
+  //   if(!this.loginService.isLoggedIn)
+  //     this.navCtrl.navigateRoot('/login');
+  //   else
+  //   {  
+  //     this.user = this.loginService.user
+  //     
+  //     this.loginService.profile();
+  //     
       
-    }
-  }
+  //   }
+  // }
 
   ngOnInit() {
+    this.user = this.loginService.user
+    this.stats = this.loginService.stats;
+    this.menu.enable(true);
+
   }
 
 }

@@ -10,12 +10,12 @@ export class ModifierService {
 
   API_URL = 'http://localhost:8000/api/';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private loginService: LoginService) { }
 
-  edit(name: String, date_ns: Date, ville: String, genre: String, email: String, password: String) {
+  edit(name: String, date_naissance: Date, ville_id: String, sexe: String, email: String, password: String) {
     
-    return this.http.post(this.API_URL + 'edit',
-      {id: LoginService.user.id, name: name, date_ns: date_ns, ville: ville, genre: genre, email: email, password: password}
+    return this.http.post(this.API_URL + `user/${this.loginService.user.id}`,
+      {name: name, date_naissance: date_naissance, ville_id: ville_id, sexe: sexe, email: email, password: password, type_sang_id: 1}
     )
   }
 

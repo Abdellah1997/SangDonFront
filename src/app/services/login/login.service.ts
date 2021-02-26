@@ -9,11 +9,12 @@ import { Statistique } from 'src/app/models/statistique';
   providedIn: 'root'
 })
 export class LoginService {
-  isLoggedIn = true;
-  token:any; //Token envoyé de La Backend (Laravel) lors du login
+  isLoggedIn = false;
+
+  public token:any; //Token envoyé de La Backend (Laravel) lors du login
   API_URL = 'http://localhost:8000/api/';
   
-  public static user = new User();
+  public user = new User();
   public stats = new Statistique();
 
   constructor(
@@ -23,20 +24,22 @@ export class LoginService {
 
   login(email: String, password: String) {
 
-    return this.http.post(this.API_URL + 'loginMobile',
+    return this.http.post(this.API_URL + 'login',
       {email: email, password: password}
     ).pipe(
       tap(data => {
-        this.storage.setItem('token',this.token)
+        // this.storage.setItem('token',this.token)
        // this.storage.set('token', data['token'])
-        .then(
-          data => {
-            console.log('Token Stored');
-          },
-          error => console.error('Error storing item', error)
-        );
+        // .then(
+        //   data => {
+        //     console.log('Token Stored');
+        //   },
+        //   error => console.error('Error storing item', error)
+        // );
+        
         this.token = data['token'];
-        LoginService.user = data['user'];
+        this.user = data['user'];
+        
         this.isLoggedIn = true;
         return data;
       })
@@ -51,7 +54,9 @@ export class LoginService {
     return this.http.get(this.API_URL + 'logout', { headers: headers })
     .pipe(
       tap(data => {
-        this.storage.remove("token");
+        // this.storage.remove("token");
+        this.token = null
+        this.user = new User()
         this.isLoggedIn = false;
         delete this.token;
         return data;
@@ -66,11 +71,14 @@ export class LoginService {
     this.getnextDon();
   }
   getTotalDemande(){
-    return this.http.post(this.API_URL + 'total_dem',{id: LoginService.user.id}).pipe(
+    const headers = new HttpHeaders({
+      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+    });
+    return this.http.get(this.API_URL + `/dons/stats/${this.user.id}` , { headers: headers }).pipe(
       tap(
         data =>{
           
-            this.stats.t_demande= data['t_dem'];
+            this.stats.t_demande= data['demandes'];
       },
         error =>console.log(error)
       )
@@ -78,7 +86,10 @@ export class LoginService {
   }
 
   getTotalDon(){
-    return this.http.post(this.API_URL + 'total_don',{id: LoginService.user.id}).pipe(
+    const headers = new HttpHeaders({
+      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+    });
+    return this.http.get(this.API_URL + `/dons/${this.user.id}` , { headers: headers }).pipe(
       tap(
         data =>{
           
@@ -92,7 +103,10 @@ export class LoginService {
   getDonAn(){
 
     console.log("GETDonAn : "+this.stats.don_an);
-    return this.http.post(this.API_URL + 'don_an',{id: LoginService.user.id}).pipe(
+    const headers = new HttpHeaders({
+      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+    });
+    return this.http.get(this.API_URL + `dons/stats/year/${this.user.id}` , { headers: headers }).pipe(
       tap(
         data =>{
           
@@ -106,7 +120,10 @@ export class LoginService {
   }
 
   getnextDon(){
-    return this.http.post(this.API_URL + 'next_don',{id: LoginService.user.id}).pipe(
+    const headers = new HttpHeaders({
+      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+    });
+    return this.http.get(this.API_URL + `dons/next/${this.user.id}` , { headers: headers }).pipe(
       tap(
         data =>{
           

@@ -7,15 +7,15 @@ import { Demande } from 'src/app/models/Demande';
   providedIn: 'root'
 })
 export class AcceuilService {
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private loginService: LoginService) { }
   API_URL = 'http://localhost:8000/api/';
   getdemandes() {
-    var str: string = String(LoginService.user.ville);
+    var str: string = String(this.loginService.user.ville);
     const headers=new HttpHeaders().set("ville",str);
     return this.http.get<Demande[]>(this.API_URL + 'demandes',{headers,responseType: 'text' as 'json'});
   }
   appliquer(id_d)
   {
-    return this.http.post(this.API_URL+ 'appliquer',{id:LoginService.user.id,id_demande:id_d});
+    return this.http.post(this.API_URL+ 'appliquer',{id:this.loginService.user.id,id_demande:id_d});
   }
 }

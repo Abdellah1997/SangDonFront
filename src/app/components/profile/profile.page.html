@@ -19,30 +19,30 @@
     <ion-card>
       <ion-item>
         <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="person-sharp"></ion-icon>
-        <ion-card-title style="font-size: 18px">Nom </ion-card-title>
+        <ion-card-title style="font-size: 18px" >Nom </ion-card-title>
       </ion-item>
       <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
-        GHARBI Hafsa
+        {{user.name}}
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-item>
         <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="accessibility-sharp"></ion-icon>
-        <ion-card-title style="font-size: 18px">Age </ion-card-title>
+        <ion-card-title style="font-size: 18px">Date de naissance </ion-card-title>
       </ion-item>
       <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
-        23 ans
+        {{user.date_naissance}}
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-item>
         <ion-icon style="color: #ff4546; font-size: 28px; margin-right: 10px" name="map-sharp"></ion-icon>
-        <ion-card-title style="font-size: 18px">Adresse </ion-card-title>
+        <ion-card-title style="font-size: 18px">Ville </ion-card-title>
       </ion-item>
       <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
-        Tanger
+        {{user.ville}}
       </ion-card-content>
     </ion-card>
 
@@ -52,7 +52,7 @@
         <ion-card-title style="font-size: 18px">Email </ion-card-title>
       </ion-item>
       <ion-card-content style="font-size: 18px; text-align: start; font-weight: 700">
-        Gh@gmail.com
+        {{user.email}}
       </ion-card-content>
     </ion-card>
     <!-- <h2>{{ user.name }}</h2>
@@ -114,8 +114,6 @@
           [routerLink]="['/modifier']">
           Modifier
         </ion-button>
-
-
         <ion-button type="submit" color="light" style="margin-top: 2%; font-weight: Bold" expand="float"
           [routerLink]="['/supprimer']">
           Supprimer

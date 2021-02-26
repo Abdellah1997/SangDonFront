@@ -1,7 +1,7 @@
 export class User {
     id: any =0;
     name: String="" ;
-    date_ns: any =0;
+    date_naissance: Date = new Date
     ville: String ="" ;
     genre: String ="";
     email: String ="";

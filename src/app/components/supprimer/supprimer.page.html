@@ -21,10 +21,10 @@
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="light" style="margin-top: 10%; font-weight: bold;" expand="float"
+        <ion-button  color="light" style="margin-top: 10%; font-weight: bold;" expand="float"
           [routerLink]="['/profile']" routerLinkActive="router-link-active">Annuler</ion-button>
 
-          <ion-button color="danger" style="border: 1px solid #ff4546; margin-top: 10%; font-weight: bold;" expand="float"
+          <ion-button color="danger" type="submit" style="border: 1px solid #ff4546; margin-top: 10%; font-weight: bold;" expand="float"
             [routerLink]="['/signup']" routerLinkActive="router-link-active" [disabled]="!DeleteForm.valid">Confirmer</ion-button>
       </ion-col>
     </ion-row>

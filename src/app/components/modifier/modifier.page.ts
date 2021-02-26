@@ -24,7 +24,7 @@ export class ModifierPage implements OnInit {
     private navCtrl: NavController,
     private menu: MenuController,
   ) { 
-    this.isLoggedIn();
+    // this.isLoggedIn();
     this.allCities();
   }
 
@@ -39,7 +39,7 @@ export class ModifierPage implements OnInit {
       this.navCtrl.navigateRoot('/login');
     else
     {  
-      this.user = LoginService.user;
+      this.user = this.loginService.user
       this.menu.enable(true);
     }
   }
@@ -61,7 +61,7 @@ export class ModifierPage implements OnInit {
   edit(form: NgForm) {
     if(this.verifyConfirm(form)) {
 
-    this.modifierService.edit(form.value.name, form.value.date_ns, form.value.ville, form.value.genre, form.value.email, form.value.password).subscribe(
+    this.modifierService.edit(form.value.name, form.value.date_naissance, form.value.ville, form.value.sexe, form.value.email, form.value.password).subscribe(
       data => {
       },
       error => {
@@ -84,8 +84,16 @@ export class ModifierPage implements OnInit {
     this.error = error.error;
   }
 
+  getUser(){
+    this.user = this.loginService.user
+  }
+
   ngOnInit() {
     console.log("Connected Email in Edit page : " + this.user.email);
+    this.getUser();
   }
+
+
+  
 
 }
