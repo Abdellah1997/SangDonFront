@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Demande } from 'src/app/models/Demande';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../../modal/modal.page';
 import { AcceuilService } from 'src/app/services/accueil/acceuil.service';
 @Component({
   selector: 'app-accueil',
@@ -9,27 +11,63 @@ import { AcceuilService } from 'src/app/services/accueil/acceuil.service';
 })
 export class AccueilPage implements OnInit {
   public demandes= [];
-  constructor(private router: Router,private accueils:AcceuilService ) { }
+  public demande : Demande = {
+    id : 0,
+    typeSang : "",
+    adresse:""
+  };
+  constructor(private router: Router,private accueils:AcceuilService,public modalController: ModalController ) { }
   ngOnInit() {
-    this.demandes = [
+   /* this.demandes = [
       { id:1,typeSang: 'ab-' },
       {id:2, typeSang: 'a-' },
       { id:3,typeSang: 'o+'},
       { id:4,typeSang: 'ab+'},
       { id:5,typeSang: 'a+'},
       { id:6,typeSang: 'o-' }
-  ];
-  this.accueils.getdemandes().subscribe(data=> this.demandes=data)
+  ];*/
+  this.accueils.getdemandes().subscribe((data)=> {
+    console.log(data);
+    console.log(data.length);
+    for(let i=0;i<data.length;i++)
+    {
+console.log(data[i].id);
+this.demande={
+  id:data[i].id,
+  typeSang:data[i].id_type_sang,
+  adresse:"helllo"
+}
+this.demandes.push(this.demande);
+    }
+  },
+  (error) => {                              //Error callback
+    console.error('error');
+  }
+  );
   }
   public postuler()
   {
     this.router.navigate(['/demander']);
+
   }
-  public appliquer(id)
+  async presentModal() {
+   const modal = await this.modalController.create({
+      component: ModalPage,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'firstName': 'Douglas',
+        'lastName': 'Adams',
+        'middleInitial': 'N'
+      }
+    });
+    return await modal.present();
+  }
+  public appliquer(id,adresse)
   {
-let resp=this.accueils.appliquer(id);
+    this.presentModal();let resp=this.accueils.appliquer(id,adresse);
 resp.subscribe(
- (data) => {                           //Next callback
+ (data) => {  
+   console.log(data);                         //Next callback
   console.log("Inserted");
 },
 (error) => {                              //Error callback

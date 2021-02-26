@@ -1,4 +1,5 @@
 export interface Demande{
     id: number,
-    typeSang: String
+    typeSang: String,
+    adresse:String
 }

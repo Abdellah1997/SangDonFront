@@ -15,7 +15,8 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class DemanderPage implements OnInit {
   public demande : Demande = {
     id : 0,
-    typeSang : ""
+    typeSang : "",
+    adresse:""
   }
 
   public user = new User();

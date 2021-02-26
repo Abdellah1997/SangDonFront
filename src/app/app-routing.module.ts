@@ -66,7 +66,12 @@ const routes: Routes = [
   {
     path: 'centres/:id',
     loadChildren: () => import('./components/details-centre/details-centre.module').then( m => m.DetailsCentrePageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   }
+
 ];
 
 @NgModule({

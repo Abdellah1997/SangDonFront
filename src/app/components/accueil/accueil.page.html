@@ -12,28 +12,36 @@
   </div>
     <ion-card color="light">
       <ion-card-header>
+        <ion-card-title style="font-size:large;">Exprimer votre besoin</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <div >
-          <p>
-            Exprimer votre besoin du sang
-          </p>
           <div style="float:right;">
             <ion-button slot="end" color="danger" (click)="postuler()">Postuler</ion-button>
-          </div>
         </div>
       </ion-card-content>
     </ion-card>
     <div style="margin-top:25px;">
       <ion-item><h2 style="margin-left: 25px;color: #eb445a;">Explorer les demandes</h2></ion-item>
+      <div style="margin-top: 5%; margin-left: 25%;" >
+        <ion-item>
+          <ion-label>Ville</ion-label>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="brown">Tanger</ion-select-option>
+            <ion-select-option value="blonde">Rabat</ion-select-option>
+            <ion-select-option value="black">Fes</ion-select-option>
+            <ion-select-option value="red">Casablanca</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
       <ion-list padding *ngFor="let item of demandes">
         <ion-card color="light">
         <ion-card-header>
           <ion-card-title style="font-size:large;">Besoin du sang de type {{item.typeSang}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+          <p>{{item.adresse}}</p>
           <div style="float:right;">
-            <ion-button slot="end" color="warning" (click)="appliquer(item.id)">Appliquer</ion-button>
+            <ion-button slot="end" color="warning" (click)="appliquer(item.id,item.adresse)">Appliquer</ion-button>
           </div>
         </ion-card-content>
       </ion-card>
