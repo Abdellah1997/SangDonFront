@@ -19,7 +19,17 @@ export class SupprimerPage implements OnInit {
 
 
   supprimer(form: NgForm){
-    this.deleteService.delete(form.value.password);
+    this.deleteService.delete(form.value.password).subscribe(
+      data => {
+        console.log(data)
+      },
+      error => {
+        // this.alertService.presentToast(error.error.error);
+        
+        console.log(error);
+      },
+      
+    );
 
   }
 

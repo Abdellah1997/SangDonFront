@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="danger">
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title></ion-title>
-      </ion-toolbar>
-    </ion-header>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="center">
   <img src='assets/images/head.png' alt="header Sang Don" id="img-head" />
   <img src='assets/images/logo.jpeg' alt="Logo Sang Don" style="margin-top: 30%;"  id="logo"/>
@@ -16,25 +16,38 @@
 
     <ion-item style="margin-left: 5%; margin-right: 5%; margin-top: 10%; border:2px solid #ff4546; border-radius: 25px;">
       <ion-label>Choisir le groupe sanguin</ion-label>
-      <ion-select [(ngModel)]="demande.typeSang" name="type">
-        <ion-select-option value="AB+">AB+</ion-select-option>
-        <ion-select-option value="AB-">AB-</ion-select-option>
-        <ion-select-option value="A+">A+</ion-select-option>
-        <ion-select-option value="A-">A-</ion-select-option>
-        <ion-select-option value="B+">B+</ion-select-option>
-        <ion-select-option value="B-">B-</ion-select-option>
-        <ion-select-option value="O+">O+</ion-select-option>
-        <ion-select-option value="O-">O-</ion-select-option>
+      <ion-select [(ngModel)]="demande.type_sang_id" name="type">
+        <ion-select-option value="1">AB+</ion-select-option>
+        <ion-select-option value="2">AB-</ion-select-option>
+        <ion-select-option value="3">A+</ion-select-option>
+        <ion-select-option value="4">A-</ion-select-option>
+        <ion-select-option value="5">B+</ion-select-option>
+        <ion-select-option value="6">B-</ion-select-option>
+        <ion-select-option value="7">O+</ion-select-option>
+        <ion-select-option value="8">O-</ion-select-option>
       </ion-select>
     </ion-item>
 
+    <ion-item style="
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%;
+        border: 1px solid #e62727;
+        border-radius: 25px;">
+      <ion-label>Ville</ion-label>
+      <ion-select [(ngModel)]="demande.id_ville" name="id_ville"> 
+        <ion-select-option *ngFor="let ville of villes" value="{{ville.id}}">{{ ville.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full" id="input">
+      <ion-input type="text" required ngModel name="adresse" placeholder="Entrer l'adresse du centre"></ion-input>
+    </ion-item>
+  
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" style="margin-top: 10%; font-weight: bold;" expand="float" [disabled]="!demanderForm.valid">
-          Demander
-        </ion-button>
+        <ion-button type="submit" color="danger" style="margin-top: 10%; font-weight: bold;" expand="float" [disabled]="!demanderForm.valid">Demander</ion-button>
       </ion-col>
     </ion-row>
   </form>
 </ion-content>
-<div><img src='assets/images/foot.png' alt="header Sang Don" id="img-foot" /></div>

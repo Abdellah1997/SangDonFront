@@ -10,6 +10,7 @@ import { AcceuilService } from 'src/app/services/accueil/acceuil.service';
   styleUrls: ['./accueil.page.scss'],
 })
 export class AccueilPage implements OnInit {
+
   public demandes= [];
   public demande : Demande = {
     id : 0,
@@ -20,7 +21,7 @@ export class AccueilPage implements OnInit {
   ngOnInit() {
    /* this.demandes = [
       { id:1,typeSang: 'ab-' },
-      {id:2, typeSang: 'a-' },
+      { id:2, typeSang: 'a-' },
       { id:3,typeSang: 'o+'},
       { id:4,typeSang: 'ab+'},
       { id:5,typeSang: 'a+'},
@@ -62,12 +63,11 @@ this.demandes.push(this.demande);
     });
     return await modal.present();
   }
-  public appliquer(id,adresse)
+  public appliquer(adresse)
   {
-    this.presentModal();let resp=this.accueils.appliquer(id,adresse);
+    this.presentModal();let resp=this.accueils.appliquer(adresse);
 resp.subscribe(
- (data) => {  
-   console.log(data);                         //Next callback
+ (data) => {                        //Next callback
   console.log("Inserted");
 },
 (error) => {                              //Error callback

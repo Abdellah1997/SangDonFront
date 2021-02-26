@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
+import { InfosPageModule } from './components/infos/infos.module';
+import { HelpPageModule } from './components/help/help.module';
+import { ProfilePageModule } from './components/profile/profile.module';
+import { DemanderPageModule } from './components/demander/demander.module';
+import { GuardGuard } from './services/guard/guard.guard';
+import { NgModule, Component } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginPageModule } from './components/login/login.module';
-import { LoginPage } from './components/login/login.page';
-import { SignupPage } from './components/signup/signup.page';
+
 
 const routes: Routes = [
   {
@@ -19,12 +22,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/accueil/accueil.module').then( m => m.AccueilPageModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('./components/login/login.module').then( m => m.LoginPageModule)
+    path: 'login' , loadChildren: () => import( './components/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'signup',
-    loadChildren: () => import('./components/signup/signup.module').then( m => m.SignupPageModule)
+    path: 'signup', loadChildren: () => import('./components/signup/signup.module').then( m => m.SignupPageModule)
   },
 
   {
@@ -36,28 +37,23 @@ const routes: Routes = [
     loadChildren: () => import('./components/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
   {
-    path: 'demander',
-    loadChildren: () => import('./components/demander/demander.module').then( m => m.DemanderPageModule)
+    path: 'demander',  loadChildren: () => import('./components/demander/demander.module').then( m => m.DemanderPageModule), canActivate: [GuardGuard]
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./components/profile/profile.module').then( m => m.ProfilePageModule)
+    path: 'profile',  loadChildren: () => import('./components/profile/profile.module').then( m => m.ProfilePageModule), canActivate: [GuardGuard]
+    
   },
   {
-    path: 'modifier',
-    loadChildren: () => import('./components/modifier/modifier.module').then( m => m.ModifierPageModule)
+    path: 'modifier',  loadChildren: () => import('./components/modifier/modifier.module').then( m => m.ModifierPageModule), canActivate: [GuardGuard]
+ },
+  {
+    path: 'help',  loadChildren: () => import('./components/help/help.module').then( m => m.HelpPageModule), canActivate: [GuardGuard]
   },
   {
-    path: 'help',
-    loadChildren: () => import('./components/help/help.module').then( m => m.HelpPageModule)
+    path: 'infos',  loadChildren: () => import('./components/infos/infos.module').then( m => m.InfosPageModule), canActivate: [GuardGuard]
   },
   {
-    path: 'infos',
-    loadChildren: () => import('./components/infos/infos.module').then( m => m.InfosPageModule)
-  },
-  {
-    path: 'supprimer',
-    loadChildren: () => import('./components/supprimer/supprimer.module').then( m => m.SupprimerPageModule)
+    path: 'supprimer', loadChildren: () => import('./components/supprimer/supprimer.module').then( m => m.SupprimerPageModule), canActivate: [GuardGuard]
   },
   {
     path: 'centres',
@@ -78,6 +74,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [GuardGuard]
 })
 export class AppRoutingModule {}

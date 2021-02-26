@@ -20,7 +20,7 @@ export class ForgotPasswordPage implements OnInit {
   }
 
   forgot(form: NgForm){
-    console.log(this.form.email);
+    // console.log(this.form.email);
     this.forgotService.forgot(form.value.email);
 
   }

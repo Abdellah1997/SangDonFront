@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { LoginService } from 'src/app/services/login/login.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
@@ -7,7 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class ForgotService {
 
-  API_URL = 'http://localhost:8000/api/';
+  API_URL = 'http://localhost:8000/api';
   error:null;
 
   constructor(private http: HttpClient) { }
@@ -15,10 +16,9 @@ export class ForgotService {
    forgot(email: String) {
     console.log("E-mail in service : " + email);
 
-
-    this.http.post(`${this.API_URL}/sendPasswordResetLink`, email).subscribe(
-      data  => this.handleError(data),
-      error => console.log(error)
+    this.http.post(`${this.API_URL}/reset-password-request`, {email: email}).subscribe(
+      data  => console.log(data),
+      error => console.log("ERROOOOOR")
     )
 
   }

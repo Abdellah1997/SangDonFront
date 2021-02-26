@@ -38,8 +38,8 @@ export class LoginPage implements OnInit {
         console.log(error);
       },
       () => {
-        this.dismissLogin();
-        this.navCtrl.navigateRoot('/dashboard');
+        // this.dismissLogin();
+        this.navCtrl.navigateRoot('demander');
       }
     );
   }
