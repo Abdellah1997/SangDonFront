@@ -10,7 +10,7 @@ import { CentresService } from 'src/app/services/centres/centres.service';
 })
 export class CentresPage implements OnInit {
   
-  public posts$: Observable<any[]>;
+  public posts$;
 
   constructor(
     private _router: Router,
@@ -22,8 +22,18 @@ export class CentresPage implements OnInit {
   }
 
   loadPosts(): void {
-    this.posts$ = this._http.get('fakeApi', '/posts');
-  }
+    this._http.getCentres().subscribe(
+      data => {
+        console.log(data)
+        this.posts$ = data
+        
+      },
+      error => {
+        // this.alertService.presentToast(error.error.error);
+        
+        console.log(error);
+      });
+    }
 
   goToDetails(post){
     this._router.navigate(['details-centre'], post.id);

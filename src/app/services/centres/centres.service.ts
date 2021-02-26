@@ -1,28 +1,30 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Centre } from 'src/app/models/Centre';
+import { LoginService } from '../login/login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CentresService {
-  public apiEndpoint: {} = {
-    fakeApi: "https://jsonplaceholder.typicode.com"
-  };
+  API_URL = 'http://localhost:8000/api/';
+  token: any;
 
-  constructor(private _httpClient: HttpClient) { }
+  public centtres : (Centre)[] = [];
+  constructor(private http: HttpClient, private loginService: LoginService) { }
 
-  
 
-  get(api: 'fakeApi' | '', path: string = null): Observable<any> {
-    if (!this.apiEndpoint[api]) {
-      return of(new Error('Api not exist!'));
-    }
-    return this._httpClient.get(`${this.apiEndpoint[api]}${(path) ? `${path}`: ``}`).pipe(
-      map(res => res || {}),
-      catchError((err: Error) => of(new Error(`${err.message || `Unable to request`}`)))
-      );
 
+  getCentres(){
+    this.token = this.loginService.token
+    console.log("DEMANEDE TOKEN : "+this.token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    });
+    console.log(this.API_URL+ `centres`)
+    console.log(this.token)
+    return this.http.get<Centre[]>(this.API_URL+ `centres`, { headers: headers });
   }
 }

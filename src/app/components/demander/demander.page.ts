@@ -8,6 +8,7 @@ import { User } from 'src/app/models/User';
 import { Ville } from 'src/app/models/Ville';
 import { DemandeService } from 'src/app/services/demande/demande.service';
 import { LoginService } from 'src/app/services/login/login.service';
+import { Centre } from 'src/app/models/Centre';
 
 @Component({
   selector: 'app-demander',
@@ -19,13 +20,14 @@ export class DemanderPage implements OnInit {
     id : 0,
     type_sang_id : "",
     id_ville : 0,
-    adresse : "",
+    id_centre: 0
   }
 
   public user = new User();
 
   demandes : Demande[] = [];
   public villes : Ville[] = [];
+  public centres : Centre[] = [];
 
   constructor(private demandeService : DemandeService,
     private navCtrl: NavController, 
@@ -39,6 +41,18 @@ export class DemanderPage implements OnInit {
 
   allCities(){
     this.signupService.getVilles().subscribe((villes) => this.villes = villes)
+  }
+
+  allCenters(id: number){
+    this.demandeService.getCentres(id).subscribe((centres) => {
+      
+      this.centres = centres,
+      console.log("Centres : " +this.centres[0])
+    },
+      error => {
+        console.log(error);
+      }
+    )
   }
   //------ Ajouter une demande --------
   addDemande(){
@@ -56,6 +70,12 @@ export class DemanderPage implements OnInit {
         this.navCtrl.navigateRoot('/profile');
       }
     )
+  }
+
+  changeVille(event){
+    let id = this.demande.id_ville
+    this.allCenters(id)
+
   }
 
   // --- Méthode pour s'assurer que l'utilisateur est connecté ---

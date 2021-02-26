@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
 export class SignupService {
   API_URL = 'http://localhost:8000/api/';
   public villes : (Ville)[] = [];
-
+  
   getVilles(){
     return this.http.get<Ville[]>(this.API_URL+"villes");
   }

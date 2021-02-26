@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
       },
       () => {
         // this.dismissLogin();
-        this.navCtrl.navigateRoot('demander');
+        this.navCtrl.navigateRoot('profile');
       }
     );
   }

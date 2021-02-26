@@ -57,7 +57,7 @@ const routes: Routes = [
   },
   {
     path: 'centres',
-    loadChildren: () => import('./components/centres/centres.module').then( m => m.CentresPageModule)
+    loadChildren: () => import('./components/centres/centres.module').then( m => m.CentresPageModule), canActivate: [GuardGuard]
   },
   {
     path: 'centres/:id',

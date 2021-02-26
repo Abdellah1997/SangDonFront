@@ -37,7 +37,33 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.user = this.loginService.user
-    this.stats = this.loginService.stats;
+     this.loginService.getDonAn().subscribe(
+      data => {
+
+        this.stats.don_an = data['don_an']
+        console.log(this.stats.don_an)
+      },
+      error => {
+        // this.alertService.presentToast(error.error.error);
+        
+        console.log(error);
+      }
+    );
+
+      this.loginService.getTotalDemande().subscribe(
+      data => {
+
+        this.stats.t_demande = data['demandes'];
+        console.log(this.stats.don_an)
+      },
+      error => {
+        // this.alertService.presentToast(error.error.error);
+        
+        console.log(error);
+      }
+    );
+
+
     this.menu.enable(true);
 
   }

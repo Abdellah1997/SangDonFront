@@ -17,7 +17,8 @@ export class DetailsCentrePage implements OnInit {
     ) { }
     
   ngOnInit() {
-    this.name = this.activatedRoute.snapshot.params['id'];
+    // this.name = this.activatedRoute.snapshot.params['id'];
+    console.log("Hello")
   }
 
   Back(){

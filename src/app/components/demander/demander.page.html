@@ -35,14 +35,24 @@
         border: 1px solid #e62727;
         border-radius: 25px;">
       <ion-label>Ville</ion-label>
-      <ion-select [(ngModel)]="demande.id_ville" name="id_ville"> 
+      <ion-select [(ngModel)]="demande.id_ville" name="id_ville" (ionChange) = "changeVille($event)"> 
         <ion-select-option *ngFor="let ville of villes" value="{{ville.id}}">{{ ville.name }}</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-item lines="full" id="input">
-      <ion-input type="text" required ngModel name="adresse" placeholder="Entrer l'adresse du centre"></ion-input>
+
+    <ion-item style="
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%;
+        border: 1px solid #e62727;
+        border-radius: 25px;">
+      <ion-label>Centre</ion-label>
+      <ion-select [(ngModel)]="demande.id_centre" name="id_centre"> 
+        <ion-select-option *ngFor="let centre of centres" value="{{centre['id']}}">{{ centre['name'] }}</ion-select-option>
+      </ion-select>
     </ion-item>
+   
   
     <ion-row>
       <ion-col>

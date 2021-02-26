@@ -48,8 +48,9 @@ export class LoginService {
   }
 
   logout() {
+
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+      'Authorization': `Bearer ${this.token}`
     });
     return this.http.get(this.API_URL + 'logout', { headers: headers })
     .pipe(
@@ -69,15 +70,17 @@ export class LoginService {
     this.getTotalDon();
     this.getDonAn();
     this.getnextDon();
+    return this.stats
   }
   getTotalDemande(){
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+      'Authorization': `Bearer ${this.token}`
     });
-    return this.http.get(this.API_URL + `/dons/stats/${this.user.id}` , { headers: headers }).pipe(
+
+    return this.http.get(this.API_URL + `dons/stats/${this.user.id}` , { headers: headers }).pipe(
       tap(
         data =>{
-          
+            console.log(this.token)
             this.stats.t_demande= data['demandes'];
       },
         error =>console.log(error)
@@ -87,9 +90,9 @@ export class LoginService {
 
   getTotalDon(){
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+      'Authorization': `Bearer ${this.token}`
     });
-    return this.http.get(this.API_URL + `/dons/${this.user.id}` , { headers: headers }).pipe(
+    return this.http.get(this.API_URL + `dons/${this.user.id}` , { headers: headers }).pipe(
       tap(
         data =>{
           
@@ -102,14 +105,14 @@ export class LoginService {
 
   getDonAn(){
 
-    console.log("GETDonAn : "+this.stats.don_an);
+    // console.log("GETDonAn : "+this.stats.don_an);
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+      'Authorization': `Bearer ${this.token}`
     });
     return this.http.get(this.API_URL + `dons/stats/year/${this.user.id}` , { headers: headers }).pipe(
       tap(
         data =>{
-          
+            console.log("115 : " + data)
             this.stats.don_an= data['don_an'];
             
       },
@@ -121,7 +124,7 @@ export class LoginService {
 
   getnextDon(){
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+      'Authorization': `Bearer ${this.token}`
     });
     return this.http.get(this.API_URL + `dons/next/${this.user.id}` , { headers: headers }).pipe(
       tap(
