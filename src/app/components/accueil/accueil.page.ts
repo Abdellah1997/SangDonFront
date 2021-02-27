@@ -12,7 +12,7 @@ import { AcceuilService } from 'src/app/services/accueil/acceuil.service';
 export class AccueilPage implements OnInit {
 
   public demandes= [];
-  public demande : Demande = {
+  public demande : any = {
     id : 0,
     typeSang : "",
     adresse:""
