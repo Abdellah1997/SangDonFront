@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Accueil</ion-title>
+      </ion-toolbar>
+    </ion-header>
+<ion-content>
+  <div class="center">
+    <img src='assets/images/logo.jpeg' alt="Logo Sang Don" style="margin-top: 3%;height: 150px;"  id="logo"/>
+  </div>
+    <ion-card color="light">
+      <ion-card-header>
+        <ion-card-title style="font-size:large;">Exprimer votre besoin</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <div style="float:right;">
+            <ion-button slot="end" color="danger" (click)="postuler()">Postuler</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <div style="margin-top:25px;">
+      <ion-item><h2 style="margin-left: 25px;color: #eb445a;">Explorer les demandes</h2></ion-item>
+      <ion-list padding *ngFor="let item of demandes">
+        <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title style="font-size:large;">Besoin du sang de type {{item.typeSang}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <h6>{{item.adresse}}</h6>
+          <div style="float:right;">
+            <ion-button slot="end" color="warning" (click)="appliquer(item.adresse)">Appliquer</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    </div>
+</ion-content>

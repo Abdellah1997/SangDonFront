@@ -1,3 +1,4 @@
+import { CentresPage } from './../centres/centres.page';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

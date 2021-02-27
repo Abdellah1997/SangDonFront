@@ -1,18 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Centres</ion-title>
+      </ion-toolbar>
+    </ion-header>
 <ion-header class="ion-no-border">
   <img src="../../../assets/images/head.png" alt="header Sang Don" id="img-head">
-  <div class="center">
-    <img src="../../../assets/images/logo.jpeg" alt="Logo Sang Don" style="margin-top: 30%;"  id="logo">
-  </div>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card (click) = "goToDetails()">
+  <ion-card *ngFor="let post of posts$" (click) = "goToDetails(post)" >
     <ion-card-header>
       <ion-card-subtitle></ion-card-subtitle>
-      <ion-card-title>Blood Center</ion-card-title>
+      <ion-card-title>{{ post.name }} - {{ post.id }} </ion-card-title>
     </ion-card-header>
-  
     <ion-card-content>
-      C'est mon adress
+      {{ post.address}}
     </ion-card-content>
   </ion-card>
 </ion-content>
