@@ -10,7 +10,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'centres',
+    redirectTo: 'accueil',
     pathMatch: 'full'
   },
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'accueil',
-    loadChildren: () => import('./components/accueil/accueil.module').then( m => m.AccueilPageModule)
+    loadChildren: () => import('./components/accueil/accueil.module').then( m => m.AccueilPageModule), canActivate: [GuardGuard]
   },
   {
     path: 'login' , loadChildren: () => import( './components/login/login.module').then( m => m.LoginPageModule)
@@ -60,8 +60,8 @@ const routes: Routes = [
     loadChildren: () => import('./components/centres/centres.module').then( m => m.CentresPageModule), canActivate: [GuardGuard]
   },
   {
-    path: 'centres/:id',
-    loadChildren: () => import('./components/details-centre/details-centre.module').then( m => m.DetailsCentrePageModule)
+    path: 'details',
+    loadChildren: () => import('./components/details-centre/details-centre.module').then( m => m.DetailsCentrePageModule), canActivate: [GuardGuard]
   },
   {
     path: 'modal',

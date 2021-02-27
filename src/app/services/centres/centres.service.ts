@@ -27,4 +27,15 @@ export class CentresService {
     console.log(this.token)
     return this.http.get<Centre[]>(this.API_URL+ `centres`, { headers: headers });
   }
+
+  getCenterByID(id){
+
+    this.token = this.loginService.token
+    console.log("DEMANEDE TOKEN : "+this.token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    });
+    return this.http.get<Centre[]>(this.API_URL+ `centre/${id}`, { headers: headers });
+
+  }
 }

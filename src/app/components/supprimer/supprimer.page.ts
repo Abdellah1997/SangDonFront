@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -12,7 +13,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class SupprimerPage implements OnInit {
 
   API_URL = 'http://localhost:8000/api/';
-  constructor(private http: HttpClient, private deleteService: DeleteService) { }
+  constructor(private http: HttpClient, private deleteService: DeleteService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,7 @@ export class SupprimerPage implements OnInit {
       },
       
     );
+    this.router.navigate(['accueil'])
 
   }
 

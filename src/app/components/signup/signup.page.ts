@@ -71,7 +71,7 @@ export class SignupPage implements OnInit {
         //   }
         // );
 
-        this.dismissRegister();
+        // this.dismissRegister();
 
         this.navCtrl.navigateRoot('accueil');
       

@@ -11,6 +11,7 @@ import { CentresService } from 'src/app/services/centres/centres.service';
 export class CentresPage implements OnInit {
   
   public posts$;
+  public static id: number;
 
   constructor(
     private _router: Router,
@@ -36,7 +37,8 @@ export class CentresPage implements OnInit {
     }
 
   goToDetails(post){
-    this._router.navigate(['details-centre'], post.id);
+    CentresPage.id = post.id
+    this._router.navigate(['details']);
     console.log('go details');
   }
 }

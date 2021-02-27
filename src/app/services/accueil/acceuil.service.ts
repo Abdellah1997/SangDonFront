@@ -7,8 +7,9 @@ import {LoginService} from '../login/login.service'
 export class AcceuilService {
   constructor(private http:HttpClient,private loginService: LoginService) { }
   API_URL = 'http://127.0.0.1:8000/api/';
-  token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9yZWdpc3RlciIsImlhdCI6MTYxNDM4MDA4MCwiZXhwIjoxNjE0MzgzNjgwLCJuYmYiOjE2MTQzODAwODAsImp0aSI6IjJKYXV3anRicGNaZExBY1IiLCJzdWIiOjYsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8At4fZy8luCau1X_9QVA437PwK_gH4LIg2fpUp-8kXQ';
+  token : any
   getdemandes() {
+    this.token = this.loginService.token
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}`
     });
@@ -16,11 +17,12 @@ export class AcceuilService {
   }
   appliquer(adresse)
   {
+    this.token = this.loginService.token
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}`
     });
     let rd = {
-      "id_user":1,
+      "id_user":this.loginService.user.id,
       "adresse":adresse
     }
     return this.http.post(this.API_URL+ 'dons',rd, { headers: headers });
